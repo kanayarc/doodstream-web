@@ -5,4 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: docker run registry.gitlab.com/viperadnan/rclone-sync
+      - name: Build
+        env: 
+          RCLONE_CONFIG_URL: ${{ secrets.RCLONE_CONFIG_URL }}
+          RCLONE_COMMANDS_URL: ${{ secrets.RCLONE_COMMANDS_URL }}
+        run: docker run registry.gitlab.com/viperadnan/rclone-sync
