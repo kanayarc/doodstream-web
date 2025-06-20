@@ -1,7 +1,7 @@
 name: Package Build
 on: [push]
 jobs:
-  check-bats-version:
+  build-docker-image:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
