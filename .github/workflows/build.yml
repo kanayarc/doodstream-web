@@ -1,5 +1,9 @@
 name: Package Build
-on: [push]
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: "13 */6 * * *"
 jobs:
   build-docker-image:
     runs-on: ubuntu-latest
