@@ -6,9 +6,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build
-        env: 
-          RCLONE_CONFIG_URL: ${{ secrets.RCLONE_CONFIG_URL }}
-          RCLONE_COMMANDS_URL: ${{ secrets.RCLONE_COMMANDS_URL }}
-        run: |
-          echo $RCLONE_CONFIG_URL
-          docker run registry.gitlab.com/viperadnan/rclone-sync
+        run: docker run -e RCLONE_CONFIG_URL=${{ secrets.RCLONE_CONFIG_URL }} -e RCLONE_COMMANDS_URL=${{ secrets.RCLONE_COMMANDS_URL }} registry.gitlab.com/viperadnan/rclone-sync
